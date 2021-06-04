@@ -30,7 +30,7 @@ x = {
     "team": "Mavs"
 }
 
-y = col.insert_one(x)  # name of document (record): x
+y = col.insert_one(x)  # document (record): x
 
 print("\n\n\n\n")
 print(client.list_database_names())
