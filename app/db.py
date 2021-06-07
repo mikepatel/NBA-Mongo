@@ -60,5 +60,12 @@ for result in col.find():
     print(result)
 """
 
+"""
 for result in col.find({"team": "Mavs"}, {"_id": 0}):  # exclude "_id" field in results
+    print(result)
+"""
+
+# ----- REGEX QUERY ----- #
+query = {"team": {"$regex": ".*er.*"}}
+for result in col.find(query, {"_id": 0}):
     print(result)
