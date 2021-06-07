@@ -3,8 +3,10 @@ Michael Patel
 June 2021
 
 Project description:
+    A data science project using NBA stats data and MongoDB
 
 File description:
+    Test file to populate/query a players' database
 
 """
 ################################################################################
