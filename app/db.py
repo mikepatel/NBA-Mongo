@@ -19,9 +19,9 @@ import config  # credentials
 ################################################################################
 # ----- CREATE a DB ----- #
 # first, create a client object
-url = "mongodb+srv://" + config.username + ":" + config.password + "@cluster0.8mrm9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+url = "mongodb+srv://" + config.username + ":" + config.password + "@cluster0.34mdn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = pymongo.MongoClient(url)
-db = client["nba_base"]  # name of db: nba_base
+db = client["nba"]  # name of db: nba_base
 #print(client.list_database_names())
 
 col = db["players"]  # name of collection (table): players
