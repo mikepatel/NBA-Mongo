@@ -17,17 +17,18 @@ import config  # credentials
 
 
 ################################################################################
-# ----- CREATE a DB ----- #
-# first, create a client object
+# ----- DB SETUP ----- #
+# first, create a client object and connect
 url = "mongodb+srv://" + config.username + ":" + config.password + "@cluster0.34mdn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = pymongo.MongoClient(url)
 
+# Database --> Collection (Table) --> Document (Record)
 # db
-db = client["nba"]  # name of db: nba_base
+db = client["nba"]
 #print(client.list_database_names())
 
 # collection (table)
-col = db["players"]  # name of collection (table): players
+col = db["players"]
 #print(db.list_collection_names())
 
 
