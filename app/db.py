@@ -21,18 +21,23 @@ import config  # credentials
 # first, create a client object
 url = "mongodb+srv://" + config.username + ":" + config.password + "@cluster0.34mdn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = pymongo.MongoClient(url)
+
+# db
 db = client["nba"]  # name of db: nba_base
 #print(client.list_database_names())
 
+# collection (table)
 col = db["players"]  # name of collection (table): players
 #print(db.list_collection_names())
 
 
 # ----- INSERT ----- #
+"""
 x = {
     "name": "Michael",
     "team": "Mavs"
 }
+"""
 
 #y = col.insert_one(x)  # document (record): x
 
@@ -52,9 +57,13 @@ a = [
 
 #b = col.insert_many(a)
 #print("\n\n\n\n")
-#print(client.list_database_names())
-#print(db.list_collection_names())
 
+# ----- SUMMARY ----- #
+print(f'Databases: {client.list_database_names()}')
+print(f'Collections: {db.list_collection_names()}')
+print(f'Documents in collection: {col.name}:')
+for result in col.find({}, {"_id": 0}):
+    print(result)
 
 # ----- FIND ---- #
 """
@@ -68,6 +77,8 @@ for result in col.find({"team": "Mavs"}, {"_id": 0}):  # exclude "_id" field in 
 """
 
 # ----- REGEX QUERY ----- #
+print()
+print("Teams that contain the substring 'er' in their names:")
 query = {"team": {"$regex": ".*er.*"}}
-for result in col.find(query, {"_id": 0}):
+for result in col.find(query, {"_id": 0}):  # exclude "_id" field in results
     print(result)
