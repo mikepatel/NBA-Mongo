@@ -12,7 +12,7 @@ import config
 
 
 ################################################################################
-def query_database():
+def get_data():
     # connect to MongoDB instance
     client = pymongo.MongoClient(config.URL)
 
@@ -21,12 +21,35 @@ def query_database():
     collection = db["players"]
 
     # query
+    fields_to_exclude = [
+        "_id",
+        "Unnamed",
+        "player_height",
+        "player_weight",
+        "college",
+        "country",
+        "draft_round",
+        "draft_number",
+        "net_rating",
+        "oreb_pct",
+        "dreb_pct",
+        "ast_pct"
+    ]
+    fields_to_exclude = {field: 0 for field in fields_to_exclude}
+
     query = {
-        "draft_year": "2015"
+        #"draft_year": {
+        #    "$gte": "2015",
+        #    "$lte": "2019"
+        #}
+        "player_name": "LeBron James"
     }
-    results = collection.find(query, {"_id": 0})  # exclude "_id" field in results
+    results = collection.find(query, fields_to_exclude)
     results = list(results)
 
     # convert to dataframe
     df = pd.DataFrame(results)
     print(df)
+
+    # close connection
+    client.close()
