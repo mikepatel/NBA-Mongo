@@ -72,8 +72,9 @@ def update(value):
 # ----- Layout: index ----- #
 index_layout = dbc.Container(
     [
-        html.H1("Players"),
+        html.H1("Player Career Stats"),
         html.Hr(),
+        # input
         dbc.Row(
             [
                 dbc.Col(
@@ -82,6 +83,7 @@ index_layout = dbc.Container(
                 )
             ]
         ),
+        # output
         dbc.Row(
             [
                 dbc.Col(
