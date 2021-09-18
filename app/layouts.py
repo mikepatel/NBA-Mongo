@@ -4,7 +4,7 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 
 # import from other modules in /app/
-from components import player_dropdown, player_table
+from components import inputs, player_table
 
 
 ################################################################################
@@ -17,7 +17,7 @@ index_layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    player_dropdown,
+                    inputs,
                     width=4
                 )
             ]
