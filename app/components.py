@@ -1,5 +1,6 @@
 ################################################################################
 # Imports
+import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_table
 
@@ -32,6 +33,13 @@ player_table = dash_table.DataTable(
         'color': 'white'
     }
 )
+
+
+################################################################################
+# ----- Component: inputs ----- #
+inputs = dbc.FormGroup([
+    player_dropdown
+])
 
 
 ################################################################################
